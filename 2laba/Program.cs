@@ -144,6 +144,37 @@ namespace test1
             Console.WriteLine(newInsert);
             newInsert = newInsert.Replace(newInsert, " ");
             Console.WriteLine(newInsert);
+            //интерполяция
+            Console.WriteLine($"bool : {isTrue},{isFalse},byte :{byte1},{sbyte1}, short : {isShort},{isUshort} int : {integer},{uInteger} long : {long1} , {ulong1} float :{float1} double : {double1} decimal : {decimal1} char : {char1} string :{hello} object : {ob}");
+
+            //IsNullOrEmpty
+            
+            string st1 = "abcd";
+            string st2 = "";
+            string st3 = null;
+            string st4 = "Hello";
+            string[] array = { st1, st2,st3,st4};
+            if (String.IsNullOrEmpty(st1))
+            {
+                Console.WriteLine("is empty or null");
+            }
+            else { Console.WriteLine(st1); }
+            if (String.IsNullOrEmpty(st2))
+            {
+                Console.WriteLine("is empty or null");
+            }
+            else { Console.WriteLine(st2); }
+            if (String.IsNullOrEmpty(st3))
+            {
+                Console.WriteLine("is empty or null");
+            }
+            else { Console.WriteLine(st3); }
+            // string builder
+            System.Text.StringBuilder sb = new System.Text.StringBuilder("Hello, my name is Stas ");
+            sb.Insert(0, "guys, ");
+            sb.AppendFormat(",good bye");
+            Console.WriteLine(sb);
+
 
         }
     }
