@@ -78,7 +78,72 @@ namespace test1
             {
                 Console.WriteLine("price is null");
             }
+            var idk = 5;
+            //idk = "Hello mistake";
 
+            // literal
+
+            Console.WriteLine("Literal text");
+            Console.WriteLine("One more tetx");
+            // сравнение
+            string s1 = "hello";
+            string s2 = "world";
+
+            int result = String.Compare(s1, s2);
+            if (result < 0)
+            {
+                Console.WriteLine("Строка s1 перед строкой s2");
+            }
+            else if (result > 0)
+            {
+                Console.WriteLine("Строка s1 стоит после строки s2");
+            }
+            else
+            {
+                Console.WriteLine("Строки s1 и s2 идентичны");
+            }
+
+            // строки
+            // сцепление
+            string helo = "hello";
+            string world = "world";
+            string helloWorld = helo + " " + world;
+            Console.WriteLine(helloWorld);
+            string fullString = String.Concat(helloWorld, "!!!");
+            Console.WriteLine(fullString);
+            // копирование
+            helo = String.Copy(world);
+            Console.WriteLine(helo);
+            //
+            // разделение строки на слова
+
+            string[] info = { "Name: Stas Dashkevich", "Title: mstr",
+                   "Age: 19", "Location: Minsk", "Gender: Men"};
+            int found = 0;
+
+            
+            foreach (string s in info)
+                Console.WriteLine(s);
+            // delete
+
+            foreach (string s in info)
+            {
+                found = s.IndexOf(":");
+                Console.WriteLine("{0}", s.Substring(found + 2));
+            }
+
+            // insert
+
+            string insertTest = "Hello, my name is Stas";
+            string newInsert = insertTest.Insert(6, "INSERT!");
+            Console.WriteLine(newInsert);
+
+
+            // one more delete
+            newInsert = newInsert.Remove(3);
+            Console.WriteLine(newInsert);
+            newInsert = newInsert.Replace(newInsert, " ");
+            Console.WriteLine(newInsert);
 
         }
     }
