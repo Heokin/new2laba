@@ -47,8 +47,8 @@ namespace test1
             //  boxing unboxing
 
 
-            int i = 123;
-            object o = i; //упаковка
+            int ii = 123;
+            object o = ii; //упаковка
             int y = (int)o; //распаковка
 
 
@@ -175,6 +175,62 @@ namespace test1
             sb.AppendFormat(",good bye");
             Console.WriteLine(sb);
 
+            // array
+         
+            int [,] arrayDouble = { { 0, 1, 2 }, { 3,4,5} };
+            int rows = arrayDouble.GetUpperBound(0) + 1;
+            int columns = arrayDouble.Length / rows;
+
+            for (int count = 0; count < rows; count++)
+            {
+                for (int counter = 0; counter < columns; counter++)
+                {
+                    Console.Write($"{arrayDouble[count, counter]} \t");
+                }
+                Console.WriteLine();
+            }
+
+            // array of string
+            string[] daysOfWeek = { "Sunday", "Monday", "Tuersday", "Wednesday", "Thirsday", "Friday", "Saturday", "Sunday" };
+            for (int jj = 0; jj < daysOfWeek.Length; jj++)
+            {
+                Console.WriteLine(daysOfWeek[jj]);
+                Console.WriteLine(daysOfWeek.Length);
+                
+            }
+
+            // tooth array
+
+            int[][] mas;
+            Console.WriteLine("Введите количество строк");
+            int n = int.Parse(Console.ReadLine());
+            mas = new int[n][];
+            int i = 0, j = 0;
+            int m = 0;
+            for (i = 0; i < n; i++)
+            {
+                Console.WriteLine("Введите количество эл-то {0}-й строки", i);
+                m = int.Parse(Console.ReadLine());
+                mas[i] = new int[m];
+                for (j = 0; j < m; j++)
+                {
+                    Console.WriteLine("Введите {0}-й элемент {1}-й строки", j, i);
+                    mas[i][j] = int.Parse(Console.ReadLine());
+                }
+            }
+            Console.WriteLine("Исходная матрица:");
+            for (i = 0; i < n; i++)
+            {
+                Console.WriteLine();
+                for (j = 0; j < mas[i].Length; j++)
+                    Console.Write(mas[i][j] + "\t");
+            }
+            Console.WriteLine();
+            for (i = 0; i < n - 1; i++)
+            {
+                for (j = 0; j < mas[i].Length; j++)
+                    mas[i][j] = mas[i][j] - mas[n - 1][j];
+            }
 
         }
     }
