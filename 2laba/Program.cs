@@ -276,7 +276,7 @@ namespace test1
                 }
                 char FisrtWord = word[1];
 
-                return Tuple.Create(maxValue,lowValue,word);
+                return Tuple.Create(maxValue,lowValue,FisrtWord);
             }
 
             (int, string) info = (6, "hello");
