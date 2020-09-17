@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace test1
 {
@@ -121,7 +122,7 @@ namespace test1
             //       "Age: 19", "Location: Minsk", "Gender: Men"};
             //int found = 0;
 
-            
+
             //foreach (string s in info)
             //    Console.WriteLine(s);
             //// delete
@@ -148,7 +149,7 @@ namespace test1
             //Console.WriteLine($"bool : {isTrue},{isFalse},byte :{byte1},{sbyte1}, short : {isShort},{isUshort} int : {integer},{uInteger} long : {long1} , {ulong1} float :{float1} double : {double1} decimal : {decimal1} char : {char1} string :{hello} object : {ob}");
 
             ////IsNullOrEmpty
-            
+
             //string st1 = "abcd";
             //string st2 = "";
             //string st3 = null;
@@ -176,7 +177,7 @@ namespace test1
             //Console.WriteLine(sb);
 
             //// array
-         
+
             //int [,] arrayDouble = { { 0, 1, 2 }, { 3,4,5} };
             //int rows = arrayDouble.GetUpperBound(0) + 1;
             //int columns = arrayDouble.Length / rows;
@@ -196,7 +197,7 @@ namespace test1
             //{
             //    Console.WriteLine(daysOfWeek[jj]);
             //    Console.WriteLine(daysOfWeek.Length);
-                
+
             //}
 
             // tooth array
@@ -256,34 +257,45 @@ namespace test1
 
 
 
-            int Fuunc(int[] numbers,string word)
+            //Tuple<int, int, int, char> Fuunc(int[] numbers, string word)
+            //{
+            //    Array.Sort(numbers);
+            //    return Tuple.Create(numbers[0], numbers[numbers.Length - 1], numbers.Sum(), word[0]);
+
+            //}
+            //Fuunc(new int[] { 5, 6, 7, 5, 6, 3, 6, 1, -5,7, 1}, "hello");
+
+            int function1()
             {
-                
-                Console.WriteLine("enter array size");
-               int arrayValue = int.Parse(Console.ReadLine());
-
-                int maxValue;
-                int lowValue;
-                for (int count = 0; count < arrayValue; count++)
+                int maxVal = 2147483647;
+                int z = 0;
+                try
                 {
-                    numbers[count] = int.Parse(Console.ReadLine());
-                    Array.Sort(numbers);
-                    maxValue = numbers[numbers.Length - 1];
-
-                    lowValue = numbers[numbers.Length - arrayValue];
-
-                    
+                    z = checked(maxVal + 11);
                 }
-                char FisrtWord = word[1];
-
-                return Tuple.Create(maxValue,lowValue,FisrtWord);
+                catch(System.OverflowException e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+                return z;
+            }
+            int function2()
+            {
+                int maxVal = 2147483647;
+                int z = 0;
+                try
+                {
+                    z = maxVal + 11;
+                }
+                catch (System.OverflowException e)
+                {
+                    Console.WriteLine(e.ToString());
+                }
+                return z;
             }
 
-            (int, string) info = (6, "hello");
-            
-
-
-
+            Console.WriteLine("fisrt : {0}", function1());
+            Console.WriteLine("fisrt : {0}", function2());
         }
     }
 }
