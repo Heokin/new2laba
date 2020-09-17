@@ -232,20 +232,58 @@ namespace test1
             //        mas[i][j] = mas[i][j] - mas[n - 1][j];
             //}
             // неявно типизированные переменные и масив
-            var array = new object[0];
-            var str = "";
+            //var array = new object[0];
+            //var str = "";
 
-            // tuple
-            (int, string, char, string, ulong) tuple =  (10, "its tuple", 'a', "Its stil tuple", 500);
-            // second
-            (var a, var b, var c, var d) = (10, 20, 30, 40);
-            Console.WriteLine($"{a} {b} {c} {d}");
-            Console.WriteLine($"{tuple.Item1}, {tuple.Item3}, {tuple.Item4}");
-            // _
-            for ( int _ = 0; _ < 2; _++)
+            //// tuple
+            //(int, string, char, string, ulong) tuple =  (10, "its tuple", 'a', "Its stil tuple", 500);
+            //// second
+            //(var a, var b, var c, var d) = (10, 20, 30, 40);
+            //Console.WriteLine($"{a} {b} {c} {d}");
+            //Console.WriteLine($"{tuple.Item1}, {tuple.Item3}, {tuple.Item4}");
+            //// _
+            //for ( int _ = 0; _ < 2; _++)
+            //{
+            //    Console.WriteLine(_);
+            //}
+
+
+            //            Создайте локальную функцию в main и вызовите ее
+            //(https://docs.microsoft.com/en-us/dotnet/csharp/programmingguide/classes-andstructs/local-functions ) . Формальные параметры функции – массив целых и
+            //строка.Функция должна вернуть кортеж, содержащий: максимальный и
+            //минимальный элементы массива, сумму элементов массива и первую
+            //букву строки
+
+
+
+            int Fuunc(int[] numbers,string word)
             {
-                Console.WriteLine(_);
+                
+                Console.WriteLine("enter array size");
+               int arrayValue = int.Parse(Console.ReadLine());
+
+                int maxValue;
+                int lowValue;
+                for (int count = 0; count < arrayValue; count++)
+                {
+                    numbers[count] = int.Parse(Console.ReadLine());
+                    Array.Sort(numbers);
+                    maxValue = numbers[numbers.Length - 1];
+
+                    lowValue = numbers[numbers.Length - arrayValue];
+
+                    
+                }
+                char FisrtWord = word[1];
+
+                return Tuple.Create(maxValue,lowValue,word);
             }
+
+            (int, string) info = (6, "hello");
+            
+
+
+
         }
     }
 }
